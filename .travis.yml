@@ -1,22 +1,23 @@
----
 language: node_js
 node_js:
-  - "4"
-
+- '4'
 sudo: false
-
 cache:
   directories:
-    - node_modules
-
+  - node_modules
 before_install:
-  - npm config set spin false
-  - npm install -g bower
-  - npm install phantomjs-prebuilt
-
+- npm config set spin false
+- npm install -g bower
+- npm install phantomjs-prebuilt
 install:
-  - npm install
-  - bower install
-
+- npm install
+- bower install
 script:
-  - npm test
+- npm test
+deploy:
+  provider: heroku
+  api_key:
+    secure: a96NiYM/jjCqMggWBZihzx/SDZJRmQAU7qpXHmiN1lKDlu/pbfeIsFK9qKpiUDftr/U0SPKWbovjNyg4wo0ngJT3Sqi5mj5urgaacFhnyLaoCg8RAu7sTLeqogNOVVB/bxONDRYtCPS3M/NQBgCu4xOpwWUrwODtmXTABadDvi/VH4/Yz7mT7OyNML2+9Sm1NhO1eTyv8prnTDOooBVGEup3dV9Fc7vVJMIH/DyTe615ZAzNpDCmCvUA4zlw/7MExWuJIglPteRvz3rh8PONx0IUy6Th7spDHNxg46tottDKpPUVxK+6jjpo+cX/sGCmOPL/HqAEMhBGHyN675XC4pUfzfhb39NRywA5MAZn3HJFSN6nr6VEFArZGbog5GzPgemvhISswJMcvUbAcB70uAeW+qZ9vwRzi4B/QS+wQSzH7x7KWvTaZci/2yJVt/EbgE8hl9NteOCH43WIby9PkKLikhgqTQoLNR59YQwPrxe6no/zXYdfNQBwWfz9JwHMhrfnnf/X0nlz06tBzOcPeoc9ohXRSdDgEhd11NfCD6UmcxXaU0WsqQ3fHX83v29EJYKe9k1m3Hs8PiEoWnOBVrN7CthAvsn8aYQw3A8gMZbRZjilRntxg6+k3DiOm8RIm7UMs6PGJI20aW+pgL/wG8F9CBJ9T8bEF6iFxU0+gpo=
+  app: radiant-depths-47998
+  on:
+    repo: alexlafroscia/peepchat-client
